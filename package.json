@@ -1,7 +1,7 @@
 {
-  "name": "react-app-template",
+  "name": "ukrainian-car-rental",
   "version": "0.1.0",
-  "homepage": "https://alex-neveroff.github.io/react-app-template/",
+  "homepage": "https://alex-neveroff.github.io/ukrainian-car-rental/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -23,12 +23,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
