@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkukrainian_car_rental=self.webpackChunkukrainian_car_rental||[]).push([[875],{1875:function(n,r,a){a.r(r);var e=a(9434),s=a(4611),c=a(3459),t=a(6851),i=a(6497),u=a(184);r.default=function(){var n=(0,e.v9)(t.Wz),r=Boolean(n.length),a=(0,e.v9)(t.B$),l=(0,e.I0)();return(0,u.jsxs)(c.W,{children:[(0,u.jsx)(s.SI,{}),(0,u.jsxs)("section",{children:[r&&(0,u.jsx)(s.hc,{cars:n,handleFavorite:function(n){return l((0,i.a3)(n))}}),a&&(0,u.jsx)(s.fr,{})]})]})}}}]);
+//# sourceMappingURL=875.55c70aab.chunk.js.map
