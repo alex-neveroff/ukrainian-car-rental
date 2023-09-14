@@ -18,14 +18,7 @@ const handlePending = state => {
 const handleFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = '';
-
-  const checkFavorites = action.payload.data.map(car => {
-    if (state.favorites.find(favorite => favorite.id === car.id)) {
-      return { ...car, favorite: true };
-    }
-    return car;
-  });
-  state.cars = [...state.cars, ...checkFavorites];
+  state.cars = action.payload.data;
 
   if (action.payload.data.length < action.payload.perPage) {
     state.isPagination = false;
