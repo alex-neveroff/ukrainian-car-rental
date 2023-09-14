@@ -1,30 +1,44 @@
-import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
+import { transitions } from 'variables/transitions';
+import { colors } from 'variables/colors';
 
 const SidebarStyled = styled.aside`
-  width: 240px;
-  padding: 8px 0 50px 0;
+  width: 200px;
   min-height: 100vh;
   height: auto;
-  background-color: #3470ff;
+  background-color: ${colors.buttonBackground};
 `;
 
-const Menu = styled.nav``;
+const Logo = styled.img`
+  width: 130px;
+  margin: 0 auto 50px;
+`;
+
+const Menu = styled.nav`
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  gap: 10px;
+`;
 
 const MenuLink = styled(NavLink)`
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: #fff;
+  color: ${colors.textButton};
   text-transform: uppercase;
-  font-family: Manrope;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
-  line-height: 20px;
+  line-height: 1.5;
+  transition: transform ${transitions.transition};
 
   &.active {
     text-decoration: underline;
   }
+
+  &:not(.active):hover,
+  &:not(.active):focus {
+    transform: scale(1.1);
+    outline: none;
+  }
 `;
 
-export { SidebarStyled, Menu, MenuLink };
+export { SidebarStyled, Menu, MenuLink, Logo };

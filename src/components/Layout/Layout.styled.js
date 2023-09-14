@@ -7,7 +7,7 @@ const LayoutStyled = styled.main`
 
 const Container = styled.div`
   margin: 0 auto;
-  padding: 50px 64px 150px 40px;
+  padding: 50px 128px;
   width: 100%;
 `;
 

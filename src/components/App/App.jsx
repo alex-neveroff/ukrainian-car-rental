@@ -2,8 +2,8 @@ import { Layout } from 'components';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
 import { fetchAdverts } from 'redux/adverts/advertsOperations';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectPage } from 'redux/adverts/advertsSelectors';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Home = lazy(() => import('../../pages/Home'));
 const Catalog = lazy(() => import('../../pages/Catalog'));

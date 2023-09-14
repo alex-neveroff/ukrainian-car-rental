@@ -7,3 +7,4 @@ export { default as FilterForm } from './FilterForm/FilterForm';
 export { default as CarList } from './CarList/CarList';
 export { default as CarCard } from './CarCard/CarCard';
 export { default as LoadMore } from './LoadMore/LoadMore';
+export { default as Slider } from './Slider/Slider';
