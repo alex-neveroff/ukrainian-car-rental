@@ -7,7 +7,7 @@ const SliderStyled = styled.div`
 `;
 
 const Slide = styled.img`
-  width: 100%;
+  width: 320px;
   border-radius: 14px;
 `;
 

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { colors } from 'variables/colors';
 
 const LayoutStyled = styled.main`
   display: flex;
@@ -12,5 +13,13 @@ const Container = styled.div`
   width: 100%;
   max-width: 1440px;
 `;
+const EmptySection = styled.p`
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
+  font-size: 20px;
+  font-weight: 500;
+  color: ${colors.textDescription};
+`;
 
-export { Container, LayoutStyled };
+export { Container, LayoutStyled, EmptySection };

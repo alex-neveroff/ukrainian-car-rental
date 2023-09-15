@@ -9,12 +9,13 @@ import {
   HighlightedText,
   ImageWrapper,
 } from './CarItem.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from 'redux/adverts/advertsSelectors';
 import { splitAddress, isPremium, digitSeparator } from 'helpers';
 import { CarItemInfo } from 'components';
+import { addFavorite, removeFavorite } from 'redux/adverts/advertsSlice';
 
-const CarItem = ({ car, handleFavorite }) => {
+const CarItem = ({ car }) => {
   const {
     id,
     year,
@@ -31,7 +32,16 @@ const CarItem = ({ car, handleFavorite }) => {
 
   const favoriteCars = useSelector(selectFavorites);
   const { city, country } = splitAddress(address);
-  const isFavorite = favoriteCars.includes(id);
+  const isFavorite = favoriteCars.find(car => car.id === id);
+  const dispatch = useDispatch();
+
+  const toggleFavorites = () => {
+    if (isFavorite) {
+      dispatch(removeFavorite(car));
+    } else {
+      dispatch(addFavorite(car));
+    }
+  };
 
   const companyInfo = {
     city,
@@ -53,9 +63,9 @@ const CarItem = ({ car, handleFavorite }) => {
       <ImageWrapper>
         <CarImage src={carImg} alt={`${make} ${model}`} />
         {isFavorite ? (
-          <FaHeart className="filled-heart" />
+          <FaHeart className="filled-heart" onClick={toggleFavorites} />
         ) : (
-          <FaRegHeart className="empty-heart" />
+          <FaRegHeart className="empty-heart" onClick={toggleFavorites} />
         )}
       </ImageWrapper>
       <CarTitleWrapper>

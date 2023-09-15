@@ -39,23 +39,15 @@ export const advertsSlice = createSlice({
   reducers: {
     addFavorite: (state, action) => {
       state.isLoading = false;
-      if (!state.favorites.includes(action.payload)) {
-        state.favorites.push(action.payload);
-        Notify.success(`Car added to favorites`);
-      }
+      state.favorites.push(action.payload);
+      Notify.success(`Car added to favorites`);
     },
 
     removeFavorite(state, action) {
       state.favorites = state.favorites.filter(
-        car => car.id !== action.payload
+        car => car.id !== action.payload.id
       );
-      state.cars = state.cars.map(car => {
-        if (car.id === action.payload) {
-          delete car.favorite;
-          Notify.warning(`Car removed from favorites`);
-        }
-        return car;
-      });
+      Notify.warning(`Car removed from favorites`);
     },
 
     incrementPage(state) {
