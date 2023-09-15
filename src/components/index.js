@@ -5,6 +5,7 @@ export { default as Loader } from './Loader/Loader';
 export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as FilterForm } from './FilterForm/FilterForm';
 export { default as CarList } from './CarList/CarList';
-export { default as CarCard } from './CarCard/CarCard';
+export { default as CarItem } from './CarItem/CarItem';
 export { default as LoadMore } from './LoadMore/LoadMore';
 export { default as Slider } from './Slider/Slider';
+export { default as CarItemInfo } from './CarItemInfo/CarItemInfo';

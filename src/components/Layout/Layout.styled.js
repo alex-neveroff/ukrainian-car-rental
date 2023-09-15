@@ -7,8 +7,10 @@ const LayoutStyled = styled.main`
 
 const Container = styled.div`
   margin: 0 auto;
-  padding: 50px 128px;
+  padding-top: 50px;
+  padding-bottom: 150px;
   width: 100%;
+  max-width: 1440px;
 `;
 
 export { Container, LayoutStyled };

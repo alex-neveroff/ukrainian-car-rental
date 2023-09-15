@@ -27,7 +27,6 @@ const MenuLink = styled(NavLink)`
   text-transform: uppercase;
   font-size: 20px;
   font-weight: 600;
-  line-height: 1.5;
   transition: transform ${transitions.transition};
 
   &.active {

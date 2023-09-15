@@ -1,11 +1,7 @@
 export const colors = {
-  //   primary: '#f3f3f3',
-  //   mainShadow: 'rgba(188, 26, 26, 0.8)',
   focusShadow: 'rgba(208, 46, 46, 1)',
-  //   darkShadow: 'rgba(188, 26, 26, 0.2)',
-  //   iconHover: '#ff0000',
-  //   iconActive: 'rgba(188, 26, 26, 0.8)',
   buttonBackground: '#3470FF',
+  buttonHover: '#0B44CD',
   loader: 'rgba(188, 26, 26, 0.2)',
   textParams: 'rgba(18, 20, 23, 0.50)',
   textLink: '#3470FF',
@@ -13,4 +9,9 @@ export const colors = {
   textButton: '#FFF',
   textDetails: '#363535;',
   textFilter: '#8A8A89',
+  gradientStart: 'rgba(18, 20, 23, 0.5) 2.5%',
+  gradientMiddle: ' rgba(18, 20, 23, 0) 41.07%',
+  gradientEnd: 'rgba(211, 211, 211, 0.5)',
+  iconEmpty: '#FFF',
+  iconFilled: '#3470FF',
 };

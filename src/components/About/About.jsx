@@ -5,11 +5,12 @@ import {
   AboutText,
   SliderWrapper,
   AboutLink,
+  AboutStyled,
 } from './About.styled';
 
 const About = () => {
   return (
-    <section>
+    <AboutStyled>
       <AboutHeader>Ukrainan car rental</AboutHeader>
       <SliderWrapper>
         <AboutText>
@@ -20,7 +21,7 @@ const About = () => {
         <Slider />
       </SliderWrapper>
       <AboutLink to="/catalog">Choose your car {'->'}</AboutLink>
-    </section>
+    </AboutStyled>
   );
 };
 

@@ -3,6 +3,11 @@ import { NavLink } from 'react-router-dom';
 import { transitions } from 'variables/transitions';
 import { colors } from 'variables/colors';
 
+const AboutStyled = styled.section`
+  padding-left: 128px;
+  padding-right: 128px;
+`;
+
 const AboutHeader = styled.h1`
   text-align: center;
   text-transform: uppercase;
@@ -10,7 +15,6 @@ const AboutHeader = styled.h1`
   color: ${colors.textDescription};
   font-size: 36px;
   font-weight: 600;
-  line-height: 1.2;
 `;
 
 const SliderWrapper = styled.div`
@@ -25,7 +29,6 @@ const AboutText = styled.p`
   color: ${colors.textDescription};
   font-size: 20px;
   font-weight: 500;
-  line-height: 1.5;
   flex: 1;
 `;
 
@@ -35,7 +38,7 @@ const AboutLink = styled(NavLink)`
   text-align: center;
   font-size: 24px;
   font-weight: 600;
-  line-height: 1.5;
+
   transition: transform ${transitions.transition};
 
   &:hover,
@@ -45,4 +48,4 @@ const AboutLink = styled(NavLink)`
   }
 `;
 
-export { AboutHeader, AboutText, SliderWrapper, AboutLink };
+export { AboutHeader, AboutText, SliderWrapper, AboutLink, AboutStyled };
