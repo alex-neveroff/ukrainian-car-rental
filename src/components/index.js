@@ -9,3 +9,5 @@ export { default as CarItem } from './CarItem/CarItem';
 export { default as LoadMore } from './LoadMore/LoadMore';
 export { default as Slider } from './Slider/Slider';
 export { default as CarItemInfo } from './CarItemInfo/CarItemInfo';
+export { default as Modal } from './Modal/Modal';
+export { default as CarDetails } from './CarDetails/CarDetails';

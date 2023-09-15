@@ -12,8 +12,9 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from 'redux/adverts/advertsSelectors';
 import { splitAddress, isPremium, digitSeparator } from 'helpers';
-import { CarItemInfo } from 'components';
+import { CarDetails, CarItemInfo, Modal } from 'components';
 import { addFavorite, removeFavorite } from 'redux/adverts/advertsSlice';
+import { useState } from 'react';
 
 const CarItem = ({ car }) => {
   const {
@@ -30,10 +31,11 @@ const CarItem = ({ car }) => {
     mileage,
   } = car;
 
+  const dispatch = useDispatch();
   const favoriteCars = useSelector(selectFavorites);
   const { city, country } = splitAddress(address);
   const isFavorite = favoriteCars.find(car => car.id === id);
-  const dispatch = useDispatch();
+  const [isShowModal, setIsShowModal] = useState(false);
 
   const toggleFavorites = () => {
     if (isFavorite) {
@@ -53,10 +55,8 @@ const CarItem = ({ car }) => {
     type,
     make,
     mileage: digitSeparator(mileage),
-    accessories,
+    accessory: accessories[0],
   };
-
-  // const { showModal, onToggleModal } = useModalToggle();
 
   return (
     <CarItemStyled>
@@ -76,10 +76,19 @@ const CarItem = ({ car }) => {
       </CarTitleWrapper>
       <CarItemInfo info={companyInfo} />
       <CarItemInfo info={carInfo} />
-      <ButtonStyled type="button">Learn more</ButtonStyled>
-
-      {/* onClick={onToggleModal} */}
-      {/* {showModal && <Modal car={car} onToggleModal={onToggleModal}></Modal>} */}
+      <ButtonStyled
+        type="button"
+        onClick={() => {
+          setIsShowModal(true);
+        }}
+      >
+        Learn more
+      </ButtonStyled>
+      {isShowModal && (
+        <Modal onClose={() => setIsShowModal(false)}>
+          <CarDetails car={car} />
+        </Modal>
+      )}
     </CarItemStyled>
   );
 };

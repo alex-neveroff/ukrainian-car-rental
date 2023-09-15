@@ -3,6 +3,7 @@ import { colors } from 'variables/colors';
 
 const Info = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   font-size: 12px;
   color: ${colors.textParams};
   margin-bottom: 4px;

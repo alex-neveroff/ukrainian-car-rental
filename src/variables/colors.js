@@ -14,4 +14,6 @@ export const colors = {
   gradientEnd: 'rgba(211, 211, 211, 0.5)',
   iconEmpty: '#FFF',
   iconFilled: '#3470FF',
+  overlayColor: 'rgba(18, 20, 23, 0.50)',
+  mainBackground: '#FFF',
 };
