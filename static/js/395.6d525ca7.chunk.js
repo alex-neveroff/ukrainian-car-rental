@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkukrainian_car_rental=self.webpackChunkukrainian_car_rental||[]).push([[395],{7395:function(n,r,s){s.r(r);var a=s(4611),e=s(3459),c=s(184);r.default=function(){return(0,c.jsxs)(e.W,{children:[(0,c.jsx)(a.SI,{}),(0,c.jsxs)("section",{children:[(0,c.jsx)(a.hc,{}),(0,c.jsx)(a.fr,{})]})]})}}}]);
-//# sourceMappingURL=395.6d525ca7.chunk.js.map

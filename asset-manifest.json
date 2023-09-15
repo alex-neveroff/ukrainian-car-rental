@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/ukrainian-car-rental/static/css/main.b36816bf.css",
-    "main.js": "/ukrainian-car-rental/static/js/main.db35616f.js",
-    "static/js/415.e0763b68.chunk.js": "/ukrainian-car-rental/static/js/415.e0763b68.chunk.js",
-    "static/js/875.55c70aab.chunk.js": "/ukrainian-car-rental/static/js/875.55c70aab.chunk.js",
-    "static/js/395.6d525ca7.chunk.js": "/ukrainian-car-rental/static/js/395.6d525ca7.chunk.js",
+    "main.css": "/ukrainian-car-rental/static/css/main.726e4c60.css",
+    "main.js": "/ukrainian-car-rental/static/js/main.28b2883b.js",
+    "static/js/415.2ef3cc25.chunk.js": "/ukrainian-car-rental/static/js/415.2ef3cc25.chunk.js",
+    "static/js/875.85a175db.chunk.js": "/ukrainian-car-rental/static/js/875.85a175db.chunk.js",
+    "static/js/395.2d266c97.chunk.js": "/ukrainian-car-rental/static/js/395.2d266c97.chunk.js",
     "static/media/logo.png": "/ukrainian-car-rental/static/media/logo.af4cf3cc262a69d6fee3.png",
     "index.html": "/ukrainian-car-rental/index.html",
-    "main.b36816bf.css.map": "/ukrainian-car-rental/static/css/main.b36816bf.css.map",
-    "main.db35616f.js.map": "/ukrainian-car-rental/static/js/main.db35616f.js.map",
-    "415.e0763b68.chunk.js.map": "/ukrainian-car-rental/static/js/415.e0763b68.chunk.js.map",
-    "875.55c70aab.chunk.js.map": "/ukrainian-car-rental/static/js/875.55c70aab.chunk.js.map",
-    "395.6d525ca7.chunk.js.map": "/ukrainian-car-rental/static/js/395.6d525ca7.chunk.js.map"
+    "main.726e4c60.css.map": "/ukrainian-car-rental/static/css/main.726e4c60.css.map",
+    "main.28b2883b.js.map": "/ukrainian-car-rental/static/js/main.28b2883b.js.map",
+    "415.2ef3cc25.chunk.js.map": "/ukrainian-car-rental/static/js/415.2ef3cc25.chunk.js.map",
+    "875.85a175db.chunk.js.map": "/ukrainian-car-rental/static/js/875.85a175db.chunk.js.map",
+    "395.2d266c97.chunk.js.map": "/ukrainian-car-rental/static/js/395.2d266c97.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b36816bf.css",
-    "static/js/main.db35616f.js"
+    "static/css/main.726e4c60.css",
+    "static/js/main.28b2883b.js"
   ]
 }
