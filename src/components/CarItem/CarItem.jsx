@@ -1,4 +1,5 @@
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
+import { RxCross1 } from 'react-icons/rx';
 import {
   ButtonStyled,
   CarItemStyled,
@@ -8,6 +9,8 @@ import {
   CarTitleWrapper,
   HighlightedText,
   ImageWrapper,
+  HeartButton,
+  CloseButton,
 } from './CarItem.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from 'redux/adverts/advertsSelectors';
@@ -62,11 +65,13 @@ const CarItem = ({ car }) => {
     <CarItemStyled>
       <ImageWrapper>
         <CarImage src={carImg} alt={`${make} ${model}`} />
-        {isFavorite ? (
-          <FaHeart className="filled-heart" onClick={toggleFavorites} />
-        ) : (
-          <FaRegHeart className="empty-heart" onClick={toggleFavorites} />
-        )}
+        <HeartButton type="button" onClick={toggleFavorites}>
+          {isFavorite ? (
+            <FaHeart className="filled-heart" />
+          ) : (
+            <FaRegHeart className="empty-heart" />
+          )}
+        </HeartButton>
       </ImageWrapper>
       <CarTitleWrapper>
         <CarTitle>
@@ -87,6 +92,9 @@ const CarItem = ({ car }) => {
       {isShowModal && (
         <Modal onClose={() => setIsShowModal(false)}>
           <CarDetails car={car} />
+          <CloseButton type="button" onClick={() => setIsShowModal(false)}>
+            <RxCross1 className="close-icon" />
+          </CloseButton>
         </Modal>
       )}
     </CarItemStyled>

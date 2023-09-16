@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ButtonStyled,
   CarDescription,
   CarDetailsStyled,
   CarImage,
@@ -10,7 +11,6 @@ import {
 } from './CarDetails.styled';
 import { CarItemInfo } from 'components';
 import { digitSeparator, splitAddress } from 'helpers';
-import { ButtonStyled } from 'components/CarItem/CarItem.styled';
 
 const CarDetails = ({ car }) => {
   const {
@@ -75,15 +75,12 @@ const CarDetails = ({ car }) => {
       <RentalWrapper>
         {conditionsList}
         <p>
-          Mileage:
-          <HighlightedText>{digitSeparator(mileage)}</HighlightedText>
+          Mileage: <HighlightedText>{digitSeparator(mileage)}</HighlightedText>
         </p>
         <p>
-          Price:
-          <HighlightedText>{rentalPrice}</HighlightedText>
+          Price: <HighlightedText>{rentalPrice}</HighlightedText>
         </p>
       </RentalWrapper>
-
       <ButtonStyled href="tel:+380730000000">Rental car</ButtonStyled>
     </CarDetailsStyled>
   );

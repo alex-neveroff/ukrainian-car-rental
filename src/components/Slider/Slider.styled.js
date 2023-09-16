@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 const SliderStyled = styled.div`
+  width: 320px;
   display: flex;
   justify-content: center;
   flex: 0 0 auto;

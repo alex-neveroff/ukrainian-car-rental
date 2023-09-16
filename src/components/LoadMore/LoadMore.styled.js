@@ -1,20 +1,23 @@
 import styled from '@emotion/styled';
+import { transitions } from 'variables/transitions';
+import { colors } from 'variables/colors';
 
 const LoadMoreStyled = styled.button`
-  cursor: pointer;
   display: block;
   margin: 100px auto 0 auto;
-  padding: 0;
-  background-color: transparent;
-  border-color: transparent;
-  color: #3470ff;
   font-size: 16px;
   font-weight: 500;
   text-decoration-line: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: ${colors.buttonBackground};
+  transition: color ${transitions.transition};
   &:hover,
   &:focus {
-    color: rgba(11, 68, 205, 1);
-    border-color: transparent;
+    color: ${colors.buttonHover};
+    outline: none;
+    border: none;
   }
 `;
 

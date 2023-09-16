@@ -14,12 +14,11 @@ const CarItemInfo = ({ info }) => {
       {info.mileage && <InfoItem>{info.mileage}</InfoItem>}
       {info.accessory && <InfoItem>{info.accessory}</InfoItem>}
       {info.fuelConsumption && <InfoItem>{info.fuelConsumption}</InfoItem>}
-      {info.engineSize && <InfoItem>{info.engineSize}</InfoItem>},
+      {info.engineSize && <InfoItem>{info.engineSize}</InfoItem>}
       {info.accessories &&
         info.accessories.map((item, index) => (
           <InfoItem key={index}>{item}</InfoItem>
         ))}
-      ,
     </Info>
   );
 };

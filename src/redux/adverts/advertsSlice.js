@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAdverts } from './advertsOperations';
+import { fetchAdverts, getTotal } from './advertsOperations';
 import { Notify } from 'notiflix';
 
 const initialState = {
@@ -8,29 +8,36 @@ const initialState = {
   isLoading: false,
   error: '',
   page: 1,
-  isPagination: false,
+  isShowLoadMore: false,
+  total: 0,
 };
 
 const handlePending = state => {
   state.isLoading = true;
 };
 
-const handleFulfilled = (state, action) => {
-  state.isLoading = false;
-  state.error = '';
-  state.cars = action.payload.data;
-
-  if (action.payload.data.length < action.payload.perPage) {
-    state.isPagination = false;
-  } else {
-    state.isPagination = true;
-  }
-};
-
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
   state.page = state.page - 1;
+};
+
+const advertsFulfilled = (state, action) => {
+  state.isLoading = false;
+  state.error = '';
+  state.cars = [...state.cars, ...action.payload.data];
+  const totalPages = Math.ceil(state.total / action.payload.perPage);
+  if (totalPages === state.page) {
+    state.isShowLoadMore = false;
+  } else {
+    state.isShowLoadMore = true;
+  }
+};
+
+const totalFulfilled = (state, action) => {
+  state.isLoading = false;
+  state.error = '';
+  state.total = action.payload.total;
 };
 
 export const advertsSlice = createSlice({
@@ -57,8 +64,9 @@ export const advertsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchAdverts.pending, handlePending)
-      .addCase(fetchAdverts.fulfilled, handleFulfilled)
-      .addCase(fetchAdverts.rejected, handleRejected);
+      .addCase(fetchAdverts.fulfilled, advertsFulfilled)
+      .addCase(fetchAdverts.rejected, handleRejected)
+      .addCase(getTotal.fulfilled, totalFulfilled);
   },
 });
 

@@ -23,3 +23,16 @@ export const fetchAdverts = createAsyncThunk(
     }
   }
 );
+
+export const getTotal = createAsyncThunk(
+  'adverts/totalItems',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get('/adverts');
+      return { total: data.length };
+    } catch (error) {
+      Notify.failure(`Server error: ${error.message}`);
+      return thunkAPI.rejectWithValue(error.code);
+    }
+  }
+);

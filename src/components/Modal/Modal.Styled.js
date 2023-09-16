@@ -15,13 +15,11 @@ const Overlay = styled.div`
 `;
 
 const ModalWindow = styled.div`
+  position: relative;
   width: 541px;
-  /* height: 752px; */
-  /* max-height: 100vh; */
   border-radius: 24px;
-  background-color: ${colors.mainBackground};
   overflow: hidden;
-  padding: 40px;
+  background-color: ${colors.mainBackground};
 `;
 
 export { Overlay, ModalWindow };

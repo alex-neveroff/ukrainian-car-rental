@@ -23,39 +23,56 @@ const ImageWrapper = styled.div`
       ${colors.gradientMiddle}
     ),
     ${colors.gradientEnd};
+`;
 
+const IconButton = styled.button`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform ${transitions.transition};
+
+  .empty-heart,
+  .filled-heart,
+  .close-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
   .empty-heart {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
     color: ${colors.iconEmpty};
-    transition: transform ${transitions.transition};
-
-    &:hover,
-    &:focus {
-      transform: scale(1.1);
-      outline: none;
-    }
   }
   .filled-heart {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
     color: ${colors.iconFilled};
-    transition: transform ${transitions.transition};
-
-    &:hover,
-    &:focus {
-      transform: scale(1.2);
-      outline: none;
-    }
   }
+  .close-icon {
+    color: ${colors.iconClose};
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+    outline: none;
+  }
+`;
+
+const HeartButton = styled(IconButton)`
+  top: 14px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+`;
+
+const CloseButton = styled(IconButton)`
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
 `;
 
 const CarImage = styled.img`
@@ -107,6 +124,8 @@ const ButtonStyled = styled.button`
 export {
   CarItemStyled,
   ImageWrapper,
+  HeartButton,
+  CloseButton,
   CarImage,
   CarTitleWrapper,
   CarTitle,

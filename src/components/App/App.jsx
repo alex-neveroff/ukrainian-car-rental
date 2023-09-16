@@ -1,7 +1,7 @@
 import { Layout } from 'components';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
-import { fetchAdverts } from 'redux/adverts/advertsOperations';
+import { fetchAdverts, getTotal } from 'redux/adverts/advertsOperations';
 import { selectPage } from 'redux/adverts/advertsSelectors';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -12,6 +12,10 @@ const Favorites = lazy(() => import('../../pages/Favorites'));
 function App() {
   const page = useSelector(selectPage);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTotal());
+  }, []);
 
   useEffect(() => {
     dispatch(fetchAdverts(page));
