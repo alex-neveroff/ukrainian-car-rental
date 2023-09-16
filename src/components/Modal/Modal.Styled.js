@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { colors } from 'variables/colors';
+import { transitions } from 'variables/transitions';
 
 const Overlay = styled.div`
   position: fixed;
@@ -17,8 +18,10 @@ const Overlay = styled.div`
 const ModalWindow = styled.div`
   position: relative;
   width: 541px;
+  max-height: 95vh;
+  overflow-y: auto;
   border-radius: 24px;
-  overflow: hidden;
+
   background-color: ${colors.mainBackground};
 `;
 

@@ -4,8 +4,7 @@ import { transitions } from 'variables/transitions';
 import { colors } from 'variables/colors';
 
 const AboutStyled = styled.section`
-  padding-left: 128px;
-  padding-right: 128px;
+  padding: 0 150px;
 `;
 
 const AboutHeader = styled.h1`
@@ -43,7 +42,7 @@ const AboutLink = styled(NavLink)`
 
   &:hover,
   &:focus {
-    transform: scale(1.1);
+    transform: ${transitions.scale};
     outline: none;
   }
 `;

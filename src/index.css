@@ -8,6 +8,10 @@ body {
   line-height: 1.5;
 }
 
+.modal-open {
+  overflow: hidden;
+}
+
 html {
   box-sizing: border-box;
   width: 100vw;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   ButtonStyled,
   CarDescription,
@@ -85,5 +86,7 @@ const CarDetails = ({ car }) => {
     </CarDetailsStyled>
   );
 };
+
+CarDetails.propTypes = { car: PropTypes.object.isRequired };
 
 export default CarDetails;

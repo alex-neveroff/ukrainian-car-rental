@@ -61,6 +61,14 @@ const CarItem = ({ car }) => {
     accessory: accessories[0],
   };
 
+  if (isShowModal) {
+    document.body.classList.add('modal-open');
+    document.documentElement.classList.add('modal-open');
+  } else {
+    document.body.classList.remove('modal-open');
+    document.documentElement.classList.remove('modal-open');
+  }
+
   return (
     <CarItemStyled>
       <ImageWrapper>

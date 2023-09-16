@@ -56,7 +56,7 @@ const IconButton = styled.button`
 
   &:hover,
   &:focus {
-    transform: scale(1.2);
+    transform: ${transitions.scale};
     outline: none;
   }
 `;

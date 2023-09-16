@@ -4,6 +4,9 @@ import { transitions } from 'variables/transitions';
 import { colors } from 'variables/colors';
 
 const SidebarStyled = styled.aside`
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 200px;
   min-height: 100vh;
   height: auto;
@@ -18,8 +21,8 @@ const Logo = styled.img`
 const Menu = styled.nav`
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
-  gap: 10px;
+  align-items: center;
+  gap: 20px;
 `;
 
 const MenuLink = styled(NavLink)`
@@ -35,7 +38,7 @@ const MenuLink = styled(NavLink)`
 
   &:not(.active):hover,
   &:not(.active):focus {
-    transform: scale(1.1);
+    transform: ${transitions.scale};
     outline: none;
   }
 `;
