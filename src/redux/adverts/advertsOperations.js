@@ -29,7 +29,7 @@ export const getTotal = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get('/adverts');
-      return { total: data.length };
+      return { data };
     } catch (error) {
       Notify.failure(`Server error: ${error.message}`);
       return thunkAPI.rejectWithValue(error.code);

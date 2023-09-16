@@ -1,15 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchAdverts, getTotal } from './advertsOperations';
 import { Notify } from 'notiflix';
+import { generatePriceRange } from 'helpers';
 
 const initialState = {
   cars: [],
   favorites: [],
-  isLoading: false,
-  error: '',
-  page: 1,
-  isShowLoadMore: false,
+  brands: [],
+  priceRange: [],
   total: 0,
+  page: 1,
+  isLoading: false,
+  isShowLoadMore: false,
+  error: '',
 };
 
 const handlePending = state => {
@@ -37,7 +40,15 @@ const advertsFulfilled = (state, action) => {
 const totalFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = '';
-  state.total = action.payload.total;
+
+  state.total = action.payload.data.length;
+  const allBrands = action.payload.data.map(item => item.make);
+  state.brands = [...new Set(allBrands)].sort();
+
+  const allprices = action.payload.data.map(item =>
+    Number(item.rentalPrice.replace('$', ''))
+  );
+  state.priceRange = generatePriceRange(allprices);
 };
 
 export const advertsSlice = createSlice({
