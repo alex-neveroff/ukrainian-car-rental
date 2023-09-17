@@ -72,7 +72,12 @@ const CarItem = ({ car }) => {
   return (
     <CarItemStyled>
       <ImageWrapper>
-        <CarImage src={carImg} alt={`${make} ${model}`} />
+        <CarImage
+          src={carImg}
+          alt={`${make} ${model}`}
+          width="447"
+          height="268"
+        />
         <HeartButton type="button" onClick={toggleFavorites}>
           {isFavorite ? (
             <FaHeart className="filled-heart" />

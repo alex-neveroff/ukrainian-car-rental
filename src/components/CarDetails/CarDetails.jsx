@@ -63,7 +63,12 @@ const CarDetails = ({ car }) => {
 
   return (
     <CarDetailsStyled>
-      <CarImage src={carImg} alt={`${make} ${model}`} />
+      <CarImage
+        src={carImg}
+        alt={`${make} ${model}`}
+        width="447"
+        height="268"
+      />
       <CarTitle>
         {`${make} `} <HighlightedText>{model}</HighlightedText> {`, ${year}`}
       </CarTitle>
