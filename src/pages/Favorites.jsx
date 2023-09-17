@@ -3,13 +3,13 @@ import { Container, EmptySection } from 'components/Layout/Layout.styled';
 import { Notify } from 'notiflix';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { resetFilter } from 'redux/slice';
 import {
   selectFavorites,
   selectFavoritesShown,
   selectPage,
   selectPerPage,
 } from 'redux/selectors';
-import { resetFilter, setFilter } from 'redux/slice';
 
 const Favorites = () => {
   const dispatch = useDispatch();

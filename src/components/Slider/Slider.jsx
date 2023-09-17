@@ -22,7 +22,12 @@ const Slider = () => {
 
   return (
     <SliderStyled>
-      <Slide src={carsImg[currentIndex]} alt={`Slide ${currentIndex}`} />
+      <Slide
+        src={carsImg[currentIndex]}
+        alt={`Slide ${currentIndex}`}
+        width="447"
+        height="268"
+      />
     </SliderStyled>
   );
 };
