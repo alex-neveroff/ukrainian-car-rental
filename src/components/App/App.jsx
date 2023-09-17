@@ -1,8 +1,8 @@
 import { Layout } from 'components';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
-import { fetchAdverts, getTotal } from 'redux/adverts/advertsOperations';
-import { selectPage } from 'redux/adverts/advertsSelectors';
+import { fetchAdverts } from 'redux/operations';
+import { selectPage } from 'redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Home = lazy(() => import('../../pages/Home'));
@@ -14,11 +14,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTotal());
-  }, []);
-
-  useEffect(() => {
-    dispatch(fetchAdverts(page));
+    dispatch(fetchAdverts({ page }));
   }, [dispatch, page]);
 
   return (

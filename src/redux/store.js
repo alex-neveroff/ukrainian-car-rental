@@ -11,7 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-import { advertsSlice } from './adverts/advertsSlice';
+import { advertsSlice } from './slice';
 
 const favoritePersistConfig = {
   key: 'adverts',

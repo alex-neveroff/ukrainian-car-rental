@@ -1,10 +1,7 @@
 import { useSelector } from 'react-redux';
 import { CarList, FilterForm, LoadMore } from 'components';
 import { Container } from 'components/Layout/Layout.styled';
-import {
-  selectCars,
-  selectisShowLoadMore,
-} from 'redux/adverts/advertsSelectors';
+import { selectCars, selectisShowLoadMore } from 'redux/selectors';
 
 const Catalog = () => {
   const cars = useSelector(selectCars);

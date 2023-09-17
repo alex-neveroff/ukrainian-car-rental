@@ -13,10 +13,10 @@ import {
   CloseButton,
 } from './CarItem.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFavorites } from 'redux/adverts/advertsSelectors';
+import { selectFavorites } from 'redux/selectors';
 import { splitAddress, isPremium, digitSeparator } from 'helpers';
 import { CarDetails, CarItemInfo, Modal } from 'components';
-import { addFavorite, removeFavorite } from 'redux/adverts/advertsSlice';
+import { addFavorite, removeFavorite } from 'redux/slice';
 import { useState } from 'react';
 
 const CarItem = ({ car }) => {

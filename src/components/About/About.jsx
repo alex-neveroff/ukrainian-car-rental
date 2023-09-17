@@ -11,7 +11,7 @@ import {
 const About = () => {
   return (
     <AboutStyled>
-      <AboutHeader>Ukrainan car rental</AboutHeader>
+      <AboutHeader>Ukrainian car rental</AboutHeader>
       <SliderWrapper>
         <AboutText>
           Rent a car in Ukraine with us and open up new horizons of freedom. A

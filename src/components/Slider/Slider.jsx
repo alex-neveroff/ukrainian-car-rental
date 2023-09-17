@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { selectCars } from 'redux/adverts/advertsSelectors';
+import { selectCars } from 'redux/selectors';
 import { SliderStyled, Slide } from './Slider.styled';
 
 const Slider = () => {

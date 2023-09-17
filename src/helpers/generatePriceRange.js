@@ -1,9 +1,7 @@
-const generatePriceRange = array => {
-  const priceMin = Math.floor(Math.min(...array) / 10) * 10;
-  const priceMax = Math.ceil(Math.max(...array) / 10) * 10;
-  const priceRange = [priceMin];
-  let priceCurrent = priceMin;
+const generatePriceRange = (priceMin, priceMax) => {
+  const priceRange = ['', priceMin.toString()];
 
+  let priceCurrent = priceMin;
   while (priceCurrent < priceMax) {
     if (priceCurrent < 200) {
       priceCurrent += 10;
@@ -13,7 +11,7 @@ const generatePriceRange = array => {
     if (priceCurrent > priceMax) {
       priceCurrent = priceMax;
     }
-    priceRange.push(priceCurrent);
+    priceRange.push(priceCurrent.toString());
   }
 
   return priceRange;

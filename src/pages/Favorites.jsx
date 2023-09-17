@@ -1,7 +1,7 @@
 import { CarList, FilterForm, LoadMore } from 'components';
 import { Container, EmptySection } from 'components/Layout/Layout.styled';
 import { useSelector } from 'react-redux';
-import { selectFavorites } from 'redux/adverts/advertsSelectors';
+import { selectFavorites } from 'redux/selectors';
 
 const Favorites = () => {
   const favoriteCars = useSelector(selectFavorites);
