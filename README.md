@@ -6,8 +6,8 @@ price and mileage
 
 ## Related links
 
-- [![GitHub](https://img.shields.io/badge/GitHub%20repository-yellow?style=for-the-badge&logo=github)](https://github.com/alex-neveroff/ukrainian-car-rental)
-- [![Deploy](https://img.shields.io/badge/GitHub%20live%20page-blue?style=for-the-badge&logo=github)](https://alex-neveroff.github.io/ukrainian-car-rental/)
+- [![GitHub](https://img.shields.io/badge/GitHub%20repository-blue?style=for-the-badge&logo=github)](https://github.com/alex-neveroff/ukrainian-car-rental)
+- [![Deploy](https://img.shields.io/badge/GitHub%20live%20page-yellow?style=for-the-badge&logo=github)](https://alex-neveroff.github.io/ukrainian-car-rental/)
 
 ## Technologies used on the Backend
 
