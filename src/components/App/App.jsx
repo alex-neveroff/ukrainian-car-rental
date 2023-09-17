@@ -2,20 +2,18 @@ import { Layout } from 'components';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
 import { fetchAdverts } from 'redux/operations';
-import { selectPage } from 'redux/selectors';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Home = lazy(() => import('../../pages/Home'));
 const Catalog = lazy(() => import('../../pages/Catalog'));
 const Favorites = lazy(() => import('../../pages/Favorites'));
 
 function App() {
-  const page = useSelector(selectPage);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAdverts({ page }));
-  }, [dispatch, page]);
+    dispatch(fetchAdverts());
+  }, []);
 
   return (
     <Routes>

@@ -8,7 +8,7 @@ const Slider = () => {
 
   const cars = useSelector(selectCars);
   const carsImg = cars.map(car => car.img);
-  const interval = 3000;
+  const interval = 1000;
 
   useEffect(() => {
     const intervalId = setInterval(() => {

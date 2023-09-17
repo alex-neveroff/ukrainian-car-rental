@@ -17,4 +17,6 @@ export const colors = {
   iconClose: '#121417',
   overlayColor: 'rgba(18, 20, 23, 0.50)',
   mainBackground: '#FFF',
+  inputBackground: '#f7f7fb',
+  inputBorder: 'rgba(138, 138, 137, 0.2)',
 };

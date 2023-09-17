@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchAdverts } from './operations';
 import { Notify } from 'notiflix';
+import { generatePriceRange } from 'helpers';
 
 const initialState = {
   cars: [],
@@ -8,9 +9,9 @@ const initialState = {
   brands: [],
   priceRange: [],
   page: 1,
+  perPage: 8,
   isLoading: false,
-  isShowLoadMore: false,
-  clickedLoadMore: false,
+  filter: null,
   error: '',
 };
 
@@ -27,17 +28,14 @@ const handleRejected = (state, action) => {
 const advertsFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = '';
-  if (state.clickedLoadMore) {
-    state.cars = [...state.cars, ...action.payload.data];
-  } else {
-    state.cars = action.payload.data;
-  }
+  state.cars = action.payload.data;
+  const allBrands = action.payload.data.map(item => item.make);
+  state.brands = ['', ...new Set(allBrands)].sort();
 
-  if (action.payload.data.length < action.payload.perPage) {
-    state.isShowLoadMore = false;
-  } else {
-    state.isShowLoadMore = true;
-  }
+  const allprices = action.payload.data.map(item =>
+    Number(item.rentalPrice.replace('$', ''))
+  );
+  state.priceRange = generatePriceRange(allprices);
 };
 
 export const advertsSlice = createSlice({
@@ -60,8 +58,13 @@ export const advertsSlice = createSlice({
     incrementPage(state) {
       state.page = state.page + 1;
     },
-    isShowMore(state, action) {
-      state.clickedLoadMore = action.payload;
+    setFilter(state, action) {
+      state.page = 1;
+      state.filter = action.payload;
+    },
+    resetFilter(state) {
+      state.filter = null;
+      state.page = 1;
     },
   },
   extraReducers: builder => {
@@ -72,5 +75,10 @@ export const advertsSlice = createSlice({
   },
 });
 
-export const { addFavorite, removeFavorite, incrementPage, isShowMore } =
-  advertsSlice.actions;
+export const {
+  addFavorite,
+  removeFavorite,
+  incrementPage,
+  setFilter,
+  resetFilter,
+} = advertsSlice.actions;

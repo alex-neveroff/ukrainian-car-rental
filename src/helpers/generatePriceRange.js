@@ -1,4 +1,6 @@
-const generatePriceRange = (priceMin, priceMax) => {
+const generatePriceRange = array => {
+  const priceMin = Math.ceil(Math.min(...array) / 10) * 10;
+  const priceMax = Math.ceil(Math.max(...array) / 10) * 10;
   const priceRange = ['', priceMin.toString()];
 
   let priceCurrent = priceMin;

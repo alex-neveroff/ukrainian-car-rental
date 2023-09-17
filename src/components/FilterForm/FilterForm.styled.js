@@ -1,4 +1,6 @@
-const { default: styled } = require('@emotion/styled');
+import styled from '@emotion/styled';
+import { transitions } from 'variables/transitions';
+import { colors } from 'variables/colors';
 
 const FormStyled = styled.form`
   display: flex;
@@ -12,14 +14,14 @@ const SelectorWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: #121417;
+  color: ${colors.textDescription};
 `;
 
 const FormLabel = styled.label`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
-  color: #8a8a89;
+  color: ${colors.textFilter};
 `;
 
 const MileageWrapper = styled.div`
@@ -30,9 +32,11 @@ const InputStyled = styled.input`
   width: 160px;
   height: 48px;
   border: none;
-  background-color: #f7f7fb;
   font-size: 18px;
   font-weight: 500;
+  line-height: 1.1;
+  color: ${colors.textDescription};
+  background-color: ${colors.inputBackground};
 
   &:focus {
     border: none;
@@ -41,53 +45,49 @@ const InputStyled = styled.input`
 `;
 
 const InputFromStyled = styled(InputStyled)`
-  padding-left: 69px;
+  padding-left: 71px;
   border-radius: 14px 0px 0px 14px;
-  border-right: 1px solid rgba(138, 138, 137, 0.2);
+  border-right: 1px solid ${colors.inputBorder};
 `;
-
 const InputToStyled = styled(InputStyled)`
   padding-left: 48px;
   border-radius: 0px 14px 14px 0px;
-  border-left: 1px solid rgba(138, 138, 137, 0.2);
+  border-left: 1px solid ${colors.inputBorder};
+`;
+
+const InputTextStyled = styled.span`
+  top: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+  position: absolute;
+`;
+
+const InputTextFrom = styled(InputTextStyled)`
+  left: 24px;
+`;
+
+const InputTextTo = styled(InputTextStyled)`
+  left: 184px;
 `;
 
 const ButtonStyled = styled.button`
   height: 44px;
   width: 136px;
   border-radius: 12px;
-  background: #3470ff;
-  color: #fff;
+  background-color: ${colors.buttonBackground};
+  color: ${colors.textButton};
   white-space: nowrap;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43;
-  transition: background 0.3s ease;
+  transition: background-color ${transitions.transition};
 
   &:hover,
   &:focus {
-    background: #0b44cd;
+    background-color: ${colors.buttonHover};
+    outline: none;
   }
-  &:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-  }
-`;
-
-const StyledSpanFrom = styled.span`
-  top: 13px;
-  left: 24px;
-  font-size: 18px;
-  font-weight: 500;
-  position: absolute;
-`;
-
-const StyledSpanTo = styled.span`
-  top: 13px;
-  left: 184px;
-  font-size: 18px;
-  font-weight: 500;
-  position: absolute;
 `;
 
 export {
@@ -97,8 +97,8 @@ export {
   ButtonStyled,
   MileageWrapper,
   FormLabel,
-  StyledSpanFrom,
-  StyledSpanTo,
+  InputTextFrom,
+  InputTextTo,
   InputToStyled,
   InputFromStyled,
 };

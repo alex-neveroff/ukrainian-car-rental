@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Dropdown from 'react-dropdown';
@@ -13,42 +13,39 @@ import {
   InputToStyled,
   MileageWrapper,
   SelectorWrapper,
-  StyledSpanFrom,
-  StyledSpanTo,
+  InputTextFrom,
+  InputTextTo,
 } from './FilterForm.styled';
-import { generatePriceRange } from 'helpers';
-import brandList from '../../lists/makes.json';
-import { fetchAdverts } from 'redux/operations';
-import { isShowMore } from 'redux/slice';
+import { selectBrands, selectPriceRange } from 'redux/selectors';
+import { setFilter } from 'redux/slice';
+import { addDollarSymbol, digitSeparator } from 'helpers';
 
 const FilterForm = () => {
-  const priceList = generatePriceRange(20, 500);
+  const brandList = useSelector(selectBrands);
+  const priceList = useSelector(selectPriceRange);
   const dispatch = useDispatch();
 
   const validationSchema = Yup.object().shape({
     carBrand: Yup.string(),
-    from: Yup.string().test(
-      'from-to-validation',
-      'From must be less than To',
-      function (value) {
-        const { to } = this.parent;
-        if (value === '' || to === '') {
-          return true;
-        }
-
-        const fromNumbered = parseFloat(value?.replace(/[^0-9]/g, ''));
-        const toNumbered = parseFloat(to?.replace(/[^0-9]/g, ''));
-
-        if (!isNaN(fromNumbered) && !isNaN(toNumbered)) {
-          if (fromNumbered >= toNumbered) {
-            Notify.failure(`From field must be less than To field`);
-            return false;
-          }
-        }
-
+    from: Yup.string().test('from-to-validation', function (value) {
+      const { to } = this.parent;
+      if (value === '' || to === '') {
         return true;
       }
-    ),
+
+      let fromNumbered = parseFloat(value?.replace(/[^0-9]/g, ''));
+      let toNumbered = parseFloat(to?.replace(/[^0-9]/g, ''));
+
+      if (!isNaN(fromNumbered) && fromNumbered > 999999) {
+        fromNumbered = 999999;
+        formik.setFieldValue('from', digitSeparator(fromNumbered));
+      }
+      if (!isNaN(toNumbered) && toNumbered > 999999) {
+        toNumbered = 999999;
+        formik.setFieldValue('to', digitSeparator(toNumbered));
+      }
+      return true;
+    }),
     to: Yup.string(),
   });
 
@@ -64,6 +61,7 @@ const FilterForm = () => {
       if (values.price === 'To $') {
         values.price = '';
       }
+
       if (!(values.from === '')) {
         const fromNumbered = parseFloat(
           typeof values.from === 'string'
@@ -72,6 +70,7 @@ const FilterForm = () => {
         );
         values.from = fromNumbered;
       }
+
       if (!(values.to === '')) {
         const toNumbered = parseFloat(
           typeof values.to === 'string'
@@ -80,14 +79,21 @@ const FilterForm = () => {
         );
         values.to = toNumbered;
       }
-      dispatch(isShowMore(false));
+
+      if (!(values.from === '') && !(values.to === '')) {
+        if (values.to < values.from) {
+          Notify.failure(`From field must be less than To field`);
+          return;
+        }
+      }
       dispatch(
-        fetchAdverts({
+        setFilter({
           carBrand: values.carBrand,
           price: values.price,
+          from: values.from,
+          to: values.to,
         })
       );
-      Notify.success(`Filters successfully applied`);
     },
   });
 
@@ -98,13 +104,23 @@ const FilterForm = () => {
     }
   };
 
+  const handleMileageRange = event => {
+    const { name, value } = event.target;
+    const numericValue = value.replace(/[^0-9]/g, '');
+
+    formik.handleChange({
+      ...event,
+      target: { name, value: numericValue },
+    });
+  };
+
   return (
     <FormStyled onSubmit={formik.handleSubmit}>
       <SelectorWrapper>
         <FormLabel htmlFor="carBrand">Car brand</FormLabel>
         <div className="dropdown-wrapper dropdown-wrapper-brand">
           <Dropdown
-            placeholder="Enter the text"
+            placeholder="Choose car brand"
             value={formik.values.carBrand}
             options={brandList}
             onChange={selectedOption =>
@@ -119,12 +135,12 @@ const FilterForm = () => {
         <div className="dropdown-wrapper">
           <Dropdown
             placeholder="To $"
-            value={formik.values.price}
+            value={addDollarSymbol(formik.values.price)}
             key={formik.values.price}
             options={priceList}
-            onChange={selectedOption =>
-              formik.setFieldValue('price', selectedOption.value)
-            }
+            onChange={selectedOption => {
+              formik.setFieldValue('price', selectedOption.value);
+            }}
           />
         </div>
       </SelectorWrapper>
@@ -132,68 +148,28 @@ const FilterForm = () => {
       <SelectorWrapper>
         <FormLabel htmlFor="mileage">Car mileage / km:</FormLabel>
         <MileageWrapper>
-          <StyledSpanFrom onClick={() => handleSpanClick('from')}>
+          <InputTextFrom onClick={() => handleSpanClick('from')}>
             From
-          </StyledSpanFrom>
+          </InputTextFrom>
           <InputFromStyled
             type="text"
             id="from"
             name="from"
-            onChange={e => {
-              const { name, value } = e.target;
-              let numericValue = parseFloat(value.replace(/[^0-9]/g, ''));
-              if (value === '') {
-                numericValue = '';
-              }
-
-              if (numericValue === '' || !isNaN(numericValue)) {
-                const formattedValue =
-                  numericValue === '' ? '' : numericValue.toLocaleString();
-                formik.handleChange({
-                  ...e,
-                  target: { name, value: formattedValue },
-                });
-              } else {
-                formik.setFieldValue(name, formik.values[name] || '');
-              }
-            }}
+            autocomplete="off"
+            onChange={handleMileageRange}
             onBlur={formik.handleBlur}
-            value={
-              formik.values.from.toLocaleString() === ''
-                ? ''
-                : formik.values.from.toLocaleString()
-            }
+            value={digitSeparator(formik.values.from)}
           />
 
-          <StyledSpanTo onClick={() => handleSpanClick('to')}>To</StyledSpanTo>
+          <InputTextTo onClick={() => handleSpanClick('to')}>To</InputTextTo>
           <InputToStyled
             type="text"
             id="to"
             name="to"
-            onChange={e => {
-              const { name, value } = e.target;
-              let numericValue = parseFloat(value.replace(/[^0-9]/g, ''));
-              if (value === '') {
-                numericValue = '';
-              }
-
-              if (numericValue === '' || !isNaN(numericValue)) {
-                const formattedValue =
-                  numericValue === '' ? '' : numericValue.toLocaleString();
-                formik.handleChange({
-                  ...e,
-                  target: { name, value: formattedValue },
-                });
-              } else {
-                formik.setFieldValue(name, formik.values[name] || '');
-              }
-            }}
+            autocomplete="off"
+            onChange={handleMileageRange}
             onBlur={formik.handleBlur}
-            value={
-              formik.values.to.toLocaleString() === ''
-                ? ''
-                : formik.values.to.toLocaleString()
-            }
+            value={digitSeparator(formik.values.to)}
           />
         </MileageWrapper>
       </SelectorWrapper>
