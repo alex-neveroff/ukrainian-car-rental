@@ -9,7 +9,7 @@ price and mileage
 - [![GitHub](https://img.shields.io/badge/GitHub%20repository-blue?style=for-the-badge&logo=github)](https://github.com/alex-neveroff/ukrainian-car-rental)
 - [![Deploy](https://img.shields.io/badge/GitHub%20live%20page-yellow?style=for-the-badge&logo=github)](https://alex-neveroff.github.io/ukrainian-car-rental/)
 
-## Technologies used on the Backend
+## Technologies used on the project
 
 ![react](https://img.shields.io/badge/React-18.2.0-blue)
 ![react-dom](https://img.shields.io/badge/React--dom-18.2.0-yellow)
