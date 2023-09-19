@@ -42,19 +42,39 @@ const SubTitle = styled.h3`
   font-weight: 500;
   line-height: 1.43;
   margin-top: 24px;
+`;
+
+const SubTitleAccessories = styled(SubTitle)`
   margin-bottom: 8px;
 `;
 
-const RentalWrapper = styled.div`
+const SubTitleRental = styled(SubTitle)`
+  margin-bottom: 15px;
+`;
+
+const RentalList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 22px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: -0.24px;
+  gap: 8px;
   padding-left: 14px;
   margin-bottom: 32px;
+`;
+
+const RentalItem = styled.li`
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  padding: 7px 14px;
+  border-radius: 35px;
+  background: ${colors.detailsBackground};
+`;
+
+const HighlightedTextConditions = styled.span`
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: -0.24px;
+  color: ${colors.textLink};
 `;
 
 const ButtonStyled = styled.a`
@@ -83,7 +103,10 @@ export {
   CarTitle,
   HighlightedText,
   CarDescription,
-  SubTitle,
-  RentalWrapper,
+  SubTitleAccessories,
+  SubTitleRental,
+  RentalList,
   ButtonStyled,
+  RentalItem,
+  HighlightedTextConditions,
 };

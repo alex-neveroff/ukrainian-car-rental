@@ -32,18 +32,6 @@ const FilterForm = () => {
       if (value === '' || to === '') {
         return true;
       }
-
-      let fromNumbered = parseFloat(value?.replace(/[^0-9]/g, ''));
-      let toNumbered = parseFloat(to?.replace(/[^0-9]/g, ''));
-
-      if (!isNaN(fromNumbered) && fromNumbered > 999999) {
-        fromNumbered = 999999;
-        formik.setFieldValue('from', digitSeparator(fromNumbered));
-      }
-      if (!isNaN(toNumbered) && toNumbered > 999999) {
-        toNumbered = 999999;
-        formik.setFieldValue('to', digitSeparator(toNumbered));
-      }
       return true;
     }),
     to: Yup.string(),

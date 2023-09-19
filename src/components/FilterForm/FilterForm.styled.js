@@ -35,6 +35,7 @@ const InputStyled = styled.input`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.1;
+  font-family: Manrope;
   color: ${colors.textDescription};
   background-color: ${colors.inputBackground};
 

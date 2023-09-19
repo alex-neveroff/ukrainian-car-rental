@@ -52,15 +52,6 @@ const Favorites = () => {
     <Container>
       <FilterForm />
       <section>
-        {/* {allFavoriteCars.length > 0 ? (
-          <CarList cars={filteredCars} />
-        ) : (
-          <EmptySection>
-            This tab is for your favorite cars. When you like one of them, it
-            will appear here. Choose your car right now!
-          </EmptySection>
-        )} */}
-
         {allFavoriteCars.length > 0 && <CarList cars={filteredCars} />}
         {allFavoriteCars.length === 0 && (
           <EmptySection>

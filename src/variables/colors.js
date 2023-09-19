@@ -19,4 +19,5 @@ export const colors = {
   mainBackground: '#FFF',
   inputBackground: '#f7f7fb',
   inputBorder: 'rgba(138, 138, 137, 0.2)',
+  detailsBackground: '#f9f9f9',
 };

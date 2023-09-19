@@ -7,8 +7,11 @@ import {
   CarImage,
   CarTitle,
   HighlightedText,
-  RentalWrapper,
-  SubTitle,
+  HighlightedTextConditions,
+  RentalItem,
+  RentalList,
+  SubTitleAccessories,
+  SubTitleRental,
 } from './CarDetails.styled';
 import { CarItemInfo } from 'components';
 import { digitSeparator, splitAddress } from 'helpers';
@@ -52,12 +55,12 @@ const CarDetails = ({ car }) => {
     if (condition.startsWith('Minimum age:')) {
       const [label, age] = condition.split(':');
       return (
-        <p key={index}>
-          {label}: <HighlightedText>{age}</HighlightedText>
-        </p>
+        <RentalItem key={index}>
+          {label}: <HighlightedTextConditions>{age}</HighlightedTextConditions>
+        </RentalItem>
       );
     } else {
-      return <p key={index}>{condition}</p>;
+      return <RentalItem key={index}>{condition}</RentalItem>;
     }
   });
 
@@ -75,18 +78,24 @@ const CarDetails = ({ car }) => {
       <CarItemInfo info={carInfo} />
       <CarItemInfo info={techInfo} />
       <CarDescription>{description}</CarDescription>
-      <SubTitle>Accessories and functionalities:</SubTitle>
+      <SubTitleAccessories>
+        Accessories and functionalities:
+      </SubTitleAccessories>
       <CarItemInfo info={accessoriesInfo} />
-      <SubTitle>Rental Conditions:</SubTitle>
-      <RentalWrapper>
+      <SubTitleRental>Rental Conditions:</SubTitleRental>
+      <RentalList>
         {conditionsList}
-        <p>
-          Mileage: <HighlightedText>{digitSeparator(mileage)}</HighlightedText>
-        </p>
-        <p>
-          Price: <HighlightedText>{rentalPrice}</HighlightedText>
-        </p>
-      </RentalWrapper>
+        <RentalItem>
+          Mileage:{' '}
+          <HighlightedTextConditions>
+            {digitSeparator(mileage)}
+          </HighlightedTextConditions>
+        </RentalItem>
+        <RentalItem>
+          Price:{' '}
+          <HighlightedTextConditions>{rentalPrice}</HighlightedTextConditions>
+        </RentalItem>
+      </RentalList>
       <ButtonStyled href="tel:+380730000000">Rental car</ButtonStyled>
     </CarDetailsStyled>
   );

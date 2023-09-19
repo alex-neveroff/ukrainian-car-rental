@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { CarList, FilterForm, LoadMore } from 'components';
-import { Container } from 'components/Layout/Layout.styled';
+import { Container, EmptySection } from 'components/Layout/Layout.styled';
 import {
   selectCars,
   selectCarsShown,
